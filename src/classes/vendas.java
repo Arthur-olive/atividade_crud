@@ -9,14 +9,43 @@ public class vendas {
 
     private String nome_vendedor;
     private String nome_comprador;
-    private int id_compra;
+    private int id;
     private double valor_compra;
     private int quantidade;
 
-    public vendas(String nome_vendedor, String nome_comprador, int id_compra, double valor_compra, int quantidade) {
+    /**
+     * @param id
+     */
+    public vendas(int id){
+        if(id > 0){
+    
+        String sql = "SELECT * FROM produtos WHERE id = ?";
+    
+            try{
+                Connection con = DB.conexao(); 
+                PreparedStatement stmt = con.prepareStatement(sql);
+                stmt.setInt(1, id);
+                ResultSet registro = stmt.executeQuery();
+                
+                while(registro.next()){
+                    this.setNome_vendedor(sql);(registro.getString("nome do vendedor"));
+                    this.setNome_comprador(sql);(registro.getString("nome do comprador"));
+                    this.setId(id);(registro.getInt("id de compra"));
+                    this.setValor_compra(id);(registro.getDouble("valor da compra"));   
+                    this.setQuantidade(registro.getInt("quantidade"));     
+                }
+
+            }catch(SQLException e){      	
+                System.out.println("Erro no Consulta da venda: " + e.toString()); 
+            }
+        }
+        }
+
+
+    public vendas(String nome_vendedor, String nome_comprador, int id, double valor_compra, int quantidade) {
         this.nome_vendedor = nome_vendedor;
         this.nome_comprador = nome_comprador;
-        this.id_compra = id_compra;
+        this.id = id;
         this.valor_compra = valor_compra;
         this.quantidade = quantidade;
 
@@ -34,10 +63,10 @@ public class vendas {
         this.nome_comprador = nome_comprador;
     }
     public int getId_compra() {
-        return id_compra;
+        return id;
     }
-    public void setId_compra(int id_compra) {
-        this.id_compra = id_compra;
+    public void setId(int id) {
+        this.id = id;
     }
     public double getValor_compra() {
         return valor_compra;
