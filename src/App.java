@@ -1,23 +1,38 @@
+import java.util.ArrayList;
 import classes.Categoria;
-import classes.Clientes;
+import classes.Cliente;
 import classes.Produto;
-import classes.vendedores;
-import classes.vendas;
+import classes.Vendedor;
+import classes.Venda;
 
 public class App {
     public static void main(String[] args){
         
-        // CADASTRAR CATEGORIA
-         //Categoria categorias = new Categoria(1);
-         //categorias.setNome("Categoria Samsung");
-         //categorias.adicionar();
+/////////////////////Cliente/////////////////////        
+//add 
+        Cliente c = new Cliente(1);
+        c.setId(6);
+        c.setNome("João Arthur");
+        c.setQuantidade(9);
+        c.adicionar();
 
-         //BUSCAR CATEGORIA
-         //Categoria categorias = new Categoria (2);
-         //System.out.println(categorias.getNome());
+//listar
+        ArrayList<Cliente> cliente = Cliente.listar();
+        
+        for(Cliente c: cliente){
+            
+        int id = c.getId();
+        String nome = c.getNome();
+        int quantidade = c.getQuantidade();
 
-         //BUSCAR PRODUTO
-         Clientes cliente = new Clientes(2);
-         System.out.println(Clientes.getNome_cliente());
+        System.out.println(id);
+        System.out.println(nome);
+        System.out.println(quantidade);
+        
+         
+
+         
+         
+        }
     }
 }

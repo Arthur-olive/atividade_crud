@@ -36,19 +36,8 @@ public class Produto{
 
             }catch(SQLException e){      	
                 System.out.println("Erro no Consulta Produto: " + e.toString()); 
-            }
+            }  
         }
-        }
-
-        public void listar() {
-            System.out.println("ID: " + this.id);
-            System.out.println("Categoria: " + this.categoria_id);
-            System.out.println("Nome: " + this.nome);
-            System.out.println("Preço: " + this.preco);
-            System.out.println("Produtos:");
-            for (Produto produto : this.Produto) {
-                System.out.println("- " + produto.getNome());
-            }
     }
 
     public int getId() {
@@ -91,4 +80,27 @@ public class Produto{
         this.quantidade = quantidade;
     }
     
-}
+    public void adicionar(){
+        String sql = "INSERT INTO produtos (nome) VALUES (?)";
+    
+        try{
+            Connection con = DB.conexao();
+            PreparedStatement stmt = con.prepareStatement(sql);
+    
+            stmt.setString(1, this.getNome());
+            stmt.execute();
+        }catch(SQLException e){      	
+            System.out.print("Erro no adicionar Produtos: " + e.toString()); 
+        }
+    }
+    
+    public void listar() {
+        System.out.println("ID: " + this.id);
+        System.out.println("Categoria: " + this.categoria_id);
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Preço: " + this.preco);
+        System.out.println("Quantidade: " + this.quantidade);
+    
+    }
+    }
+
