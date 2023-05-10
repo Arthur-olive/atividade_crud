@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Categoria {
     
-    private int id;
-    private String nome;
+    private static int id;
+    private static String nome;
 
     public Categoria(int id){
         if(id > 0){
@@ -34,13 +35,13 @@ public class Categoria {
         return id;
     }
     public void setId(int id) {
-        this.id = id;
+        Categoria.id = id;
     }
     public String getNome() {
         return nome;
     }
     public void setNome(String nome) {
-        this.nome = nome;
+        Categoria.nome = nome;
     }
 
     public void adicionar(){
@@ -57,9 +58,46 @@ public class Categoria {
         }
    }
    
-    public void listar() {
-        System.out.println("Nome: " + this.nome);
-        System.out.println("ID: " + this.id);
+    public static ArrayList<Categoria> listar() {
+        System.out.println("Nome: " + nome);
+        System.out.println("ID: " + id);
+        return null;
 
-}
     }
+
+    public void atualizar (){
+
+        String sql = "UPDATE clientes SET id = ?, nome = ?";
+
+    try{
+        Connection con = DB.conexao();
+        PreparedStatement stmt = con.prepareStatement(sql);
+
+        stmt.setInt(1, this.getId());
+        stmt.setString(2, this.getNome());
+        stmt.executeUpdate();
+
+    }catch(SQLException e){
+
+    System.out.println("Erro no Atualizar Categoria: " + e.toString());
+
+        }   
+    }
+
+    public void excluir(){
+       String sql = "DELETE FROM categorias WHERE id = ?";
+
+    try{
+        Connection con = DB.conexao();
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, this.getId());
+        stmt.executeUpdate();
+
+    }catch(SQLException e){
+
+     System.out.println("Erro no Excluir Categoria: " + e.toString());
+
+       }
+    }
+}
+    
