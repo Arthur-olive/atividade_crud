@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class Produto{
 
-    private static int id;
+    private static int idp;
     private static int categoria_id;
-    private static String nome;
+    private static String nomep;
     private static double preco;
-    private static int quantidade;
+    private static int quantidadep;
 
     /**
      * @param id
@@ -42,11 +42,11 @@ public class Produto{
     }
 
     public int getId() {
-        return id;
+        return idp;
     }
 
     public void setId(int id) {
-        Produto.id = id;
+        Produto.idp = id;
     }
 
     public int getCategoriaId() {
@@ -58,11 +58,11 @@ public class Produto{
     }
 
     public String getNome() {
-        return nome;
+        return nomep;
     }
 
     public void setNome(String nome) {
-        Produto.nome = nome;
+        Produto.nomep = nome;
     }
 
     public double getPreco() {
@@ -74,11 +74,11 @@ public class Produto{
     }
 
     public int getQuantidade() {
-        return quantidade;
+        return quantidadep;
     }
 
     public void setQuantidade(int quantidade) {
-        Produto.quantidade = quantidade;
+        Produto.quantidadep = quantidade;
     }
     
     public void adicionar(){
@@ -98,11 +98,11 @@ public class Produto{
          * @return
          */
     public static ArrayList<Produto> listar() {
-            System.out.println("ID: " + id);
+            System.out.println("ID: " + idp);
             System.out.println("Categoria: " + categoria_id);
-            System.out.println("Nome: " + nome);
+            System.out.println("Nome: " + nomep);
             System.out.println("Preço: " + preco);
-            System.out.println("Quantidade: " + quantidade);
+            System.out.println("Quantidade: " + quantidadep);
             return null;
 
         }

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class Categoria {
     
-    private static int id;
-    private static String nome;
+    private static int idc;
+    private static String nomec;
 
     public Categoria(int id){
         if(id > 0){
@@ -32,16 +32,16 @@ public class Categoria {
 
 
     public int getId() {
-        return id;
+        return idc;
     }
     public void setId(int id) {
-        Categoria.id = id;
+        Categoria.idc = id;
     }
     public String getNome() {
-        return nome;
+        return nomec;
     }
     public void setNome(String nome) {
-        Categoria.nome = nome;
+        Categoria.nomec = nome;
     }
 
     public void adicionar(){
@@ -59,8 +59,8 @@ public class Categoria {
    }
    
     public static ArrayList<Categoria> listar() {
-        System.out.println("Nome: " + nome);
-        System.out.println("ID: " + id);
+        System.out.println("Nome: " + nomec);
+        System.out.println("ID: " + idc);
         return null;
 
     }

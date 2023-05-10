@@ -13,7 +13,7 @@ public class App {
         
 /////////////////////Cliente/////////////////////        
 //add 
-        Cliente c = new Cliente(1);
+        Cliente c = new Cliente(3);
         c.setId(6);
         c.setNome("João Arthur");
         c.setQuantidade(9);
@@ -58,13 +58,13 @@ public class App {
 ArrayList<Vendedor> vendedor = Vendedor.listar();
 
         for(Vendedor v1: vendedor){
-        int id1 = v1.getId();
-        String nome1 = v1.getNome();
-        int quantidade1 = v1.getQuantidade();
+        int idv = v1.getId();
+        String nomev = v1.getNome();
+        int quantidadev = v1.getQuantidade();
 
-        System.out.println(id);
-        System.out.print(nome);
-        System.out.print(quantidade);
+        System.out.println(idv);
+        System.out.print(nomev);
+        System.out.print(quantidadev);
 
 //update
         Vendedor v2 = new Vendedor(2);
@@ -95,17 +95,17 @@ ArrayList<Vendedor> vendedor = Vendedor.listar();
         ArrayList<Produto> produto = Produto.listar();
 
         for(Produto p1: produto){
-        int id3 = p1.getId();
+        int idp = p1.getId();
         int categoria_id = p1.getQuantidade();
-        String nome3 = p1.getNome();
+        String nomep = p1.getNome();
         double preco = p1.getPreco();
-        int quantidade3 = p1.getQuantidade();
+        int quantidadep = p1.getQuantidade();
 
-        System.out.println(id);
+        System.out.println(idp);
         System.out.print(categoria_id);
-        System.out.print(nome);
+        System.out.print(nomep);
         System.out.print(preco);
-        System.out.print(quantidade);
+        System.out.print(quantidadep);
 
 //update
         Produto p2 = new Produto(1);
@@ -135,11 +135,11 @@ ArrayList<Vendedor> vendedor = Vendedor.listar();
         ArrayList<Categoria> categoria = Categoria.listar();
 
         for(Categoria c5: categoria){
-        int id4 = c5.getId();
-        String nome4 = c5.getNome();
+        int idc = c5.getId();
+        String nomec = c5.getNome();
 
-        System.out.println(id);
-        System.out.print(nome);
+        System.out.println(idc);
+        System.out.print(nomec);
 
 //update
         Categoria c6 = new Categoria(1);
@@ -171,9 +171,9 @@ ArrayList<Vendedor> vendedor = Vendedor.listar();
         String nome5 = v5.getNome();
         double preco5 = v5.getPreco();
 
-        System.out.println(id);
-        System.out.print(nome);
-        System.out.print(preco);
+        System.out.println(id5);
+        System.out.print(nome5);
+        System.out.print(preco5);
 
 //update
         Venda v6 = new Venda(1);
